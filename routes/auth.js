@@ -23,7 +23,7 @@ router.get('/google/callback',
 //description log out user
 //route /auth/logout
 
-route.get('/logout',(req,res)=>{
+router.get('/logout',(req,res)=>{
     req.logout()
     res.redirect('/')
 })
