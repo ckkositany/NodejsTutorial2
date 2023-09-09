@@ -37,19 +37,50 @@ module.exports=function(passport){
     }
     ))    
 
-    passport.serializeUser((user,done) => {
-        process.nextTick(() =>{
-          return done(null, {
-            id: user.id,
-            username: user.username,
-            picture: user.picture
-          });
-        });
-      });
+    passport.serializeUser((user,done)=>{
+      done(null, user.id)
+    })
+
+    //const User = require('./models/User'); // Import your user model
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (error) {
+    done(error);
+  }
+});
+
+
+      // passport.deserializeUser((id,done)=>{
+      //   User.findById(id,(err,user)=>done(err,user))
+      // })
+    }
+//     passport.serializeUser((user,done) => {
+//         process.nextTick(() =>{
+//           return done(null, {
+//             id: user.id,
+//             username: user.username,
+//             picture: user.picture
+//           });
+//         });
+//       });
       
-      passport.deserializeUser((user,done) =>{
-        process.nextTick(() =>{
-          return done(null, user);
-        });
-      });
-}
+//       passport.deserializeUser((user,done) =>{
+//         process.nextTick(() =>{
+//           return done(null, 
+//             {
+//               id: user.id,
+//               username: user.displayName,
+//               picture: user.picture
+//             });
+//         });
+//       });
+// }
+
+      
+      
+       
+
+     
