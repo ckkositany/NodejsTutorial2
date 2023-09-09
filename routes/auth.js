@@ -1,6 +1,6 @@
 const express=require('express')
 const passport = require('passport')
-const { route } = require('.')
+//const { route } = require('.')
 const router=express.Router()
 
 //@description: login/landing page
@@ -24,7 +24,10 @@ router.get('/google/callback',
 //route /auth/logout
 
 router.get('/logout',(req,res)=>{
-    req.logout()
+    //console.log(req.logOut)
+    //console.log(req.logout)
+    req.logout
+    
     res.redirect('/')
 })
 
