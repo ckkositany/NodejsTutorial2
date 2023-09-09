@@ -11,12 +11,13 @@ module.exports=function(passport){
     },
     async (accessToken, refreshToken, profile, done) =>{
        //console.log(profile)
+       
        const newUser={
         googleId: profile.id,
         displayName: profile.displayName,
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
-        Image: profile.photos[0].value,
+        image: profile.photos[0].value,
        }
 
        try {
@@ -29,8 +30,10 @@ module.exports=function(passport){
             done(null,user)
         }
        } catch (err) {
-            console.log(err)
-       }
+            console.error(err)
+            done(err) //passing error to the passport
+       } 
+       
     }
     ))    
 

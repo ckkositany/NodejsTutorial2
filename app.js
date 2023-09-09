@@ -13,20 +13,9 @@ dotenv.config({path: './config/config.env'})
 //passport config
 require('./config/passport')(passport)
 
- // Adjust the path as needed
+ 
 //connecting mongoDB
-async function main() {
-  try {
-    await connectDB();
-    // Your code that depends on the MongoDB connection goes here
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-  }
-}
-
-main();
-
-
+  connectDB()
 
 
 //logging
