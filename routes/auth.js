@@ -1,7 +1,8 @@
 const express=require('express')
 const passport = require('passport')
-//const { route } = require('.')
+const { route } = require('.')
 const router=express.Router()
+
 
 //@description: login/landing page
 //@route GET /auth/google
