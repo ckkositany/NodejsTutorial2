@@ -6,7 +6,7 @@ const path=require('path')
 const passport=require('passport')
 const session=require('express-session')
 const {exphbs,engine}=require('express-handlebars')
-const MongoStore = require('connect-mongo').default;
+const MongoStore = require('connect-mongo')
 const connectDB=require('./config/db')
 const { request } = require('http')
 
