@@ -26,11 +26,20 @@ router.get('/google/callback',
 //route /auth/logout
 
 router.get('/logout',(req,res)=>{
-    //console.log(req.logOut)
-    //console.log(req.logout)
-    req.logout
-    
+    // console.log(req.logOut)
+   
+   req.logout((err)=>{
+    if (err){
+       // console.log(req.logout)
+        return next(err)
+        
+    }
+
     res.redirect('/')
+   
+   })
+    
+    
 })
 
 
