@@ -33,22 +33,15 @@ app.engine('.hbs', engine({defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 //sessions
-/*
-let store= MongoStore.create({
-  mongoUrl: process.env.MONGO_URI,
-  collections: "sessions"
-})
-*/
+const URL ="mongodb+srv://kositanyck:KdvfaSZAzSWlHxUN@cluster0.vkepmpr.mongodb.net/storybooks?retryWrites=true&w=majority";
 app.use(session
   ({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    //store :store
-   
+    store: MongoStore.create({mongoUrl: URL }),
+    
   }))
-
-
 
 //passport middleware
 app.use(passport.initialize())
