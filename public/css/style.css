@@ -8,3 +8,10 @@ p{
     margin-top: 50px;
     text-align: center;
 }
+/* Add a wrapper div to encapsulate the button */
+.button-wrapper {
+    position: fixed;
+    bottom: 20px; /* Adjust this value to control the vertical position */
+    right: 20px; /* Adjust this value to control the horizontal position */
+    z-index: 1000; /* Adjust the z-index to ensure it appears above other content */
+}
