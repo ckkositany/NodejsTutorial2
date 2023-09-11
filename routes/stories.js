@@ -10,4 +10,10 @@ router.get('/add', ensureAuth, (req,res)=>{
     res.render('stories/add')
 })
 
+//@description process add form
+// @ route GET /stories/add
+router.get('/add', ensureAuth, (req,res)=>{
+    res.render('stories/add')
+})
+
 module.exports=router
