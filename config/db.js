@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv=require('dotenv')
-const URI = "mongodb+srv://kositanyck:KdvfaSZAzSWlHxUN@cluster0.vkepmpr.mongodb.net/storybooks?retryWrites=true&w=majority";
+const URI = "mongodb+srv://kositanyck:KdvfaSZAzSWlHxUN@cluster0.vkepmpr.mongodb.net/storybooks?retryWrites=true";
 
 const connectDB = async () => {
   try {

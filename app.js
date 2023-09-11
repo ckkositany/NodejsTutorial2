@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')
 const connectDB=require('./config/db')
 const { request } = require('http')
 
+const app=express()
 //load config 
 dotenv.config({path: './config/config.env'})
 
@@ -20,9 +21,13 @@ require('./config/passport')(passport)
 //connecting mongoDB
   connectDB()
 
+  //Boody parser
+  app.use(express.urlencoded({extended: false}))
+  app.use(express.json())
+
 
 //logging
-const app=express()
+
 if(process.env.NODE_ENV==='development'){
 
     app.use(morgan('dev'))
@@ -33,7 +38,7 @@ app.engine('.hbs', engine({defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 //sessions
-const URL ="mongodb+srv://kositanyck:KdvfaSZAzSWlHxUN@cluster0.vkepmpr.mongodb.net/storybooks?retryWrites=true&w=majority";
+const URL ="mongodb+srv://kositanyck:KdvfaSZAzSWlHxUN@cluster0.vkepmpr.mongodb.net/storybooks?retryWrites=true"
 app.use(session
   ({
     secret: 'keyboard cat',
