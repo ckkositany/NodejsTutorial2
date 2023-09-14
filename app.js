@@ -33,8 +33,12 @@ if(process.env.NODE_ENV==='development'){
     app.use(morgan('dev'))
 }
 
+//Handlebars Helpers
+const {formDate}=require('./helpers/hbs')
 //handlebars
-app.engine('.hbs', engine({defaultLayout:'main',extname: '.hbs'}));
+app.engine('.hbs', engine({helpers:{
+    formDate
+},defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 //sessions
