@@ -7,6 +7,7 @@ const { route } = require('.')
 //@description show add page 
 // @ route GET /stories/add
 router.get('/add', ensureAuth, (req,res)=>{
+    //console.log(stories)
     res.render('stories/add')
 })
 
