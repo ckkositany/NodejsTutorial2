@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const User=require('./User')
 
 const StorySchema = new mongoose.Schema({
   title: {
@@ -27,6 +28,8 @@ const StorySchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Story', StorySchema)
+
+
 
 /*
 const mongoose=require('mongoose')

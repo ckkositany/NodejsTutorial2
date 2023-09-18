@@ -18,9 +18,10 @@ router.get('/',ensureGuest,(req,res)=>{
 router.get('/dashboard',ensureAuth, async (req,res)=>{
 
     try {
-        const stories = await Story.find({ User: req.user.Id }).lean();
+        const stories = await Story.find({ user: req.user.id }).lean();
         // console.log(req.user.id)
-        // console.log(stories);
+        //  console.log(req.user)
+        //  console.log(stories);
         if (stories.length === 0) {
             console.log('No stories found for the user.');
         } 

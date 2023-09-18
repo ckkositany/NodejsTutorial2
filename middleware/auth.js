@@ -1,8 +1,8 @@
 module.exports={
     ensureAuth: function(req,res,next){
-       
+       console.log(`Before auth: ${req.user.id}`)
         if(req.isAuthenticated()){
-            //console.log('User is authenticated')
+            console.log(`User is authenticatedis: ${req.user.id}`)
             return next()
         }
         else{
