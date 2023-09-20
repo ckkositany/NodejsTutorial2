@@ -34,13 +34,14 @@ if(process.env.NODE_ENV==='development'){
 }
 
 //Handlebars Helpers
-const {formDate,stripTags,truncate,editIcon}=require('./helpers/hbs')
+const {formDate,stripTags,truncate,editIcon,select}=require('./helpers/hbs')
 //handlebars
 app.engine('.hbs', engine({helpers:{
     formDate,
     stripTags,
     truncate,
     editIcon,
+    select,
 },defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
