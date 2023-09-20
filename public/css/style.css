@@ -15,3 +15,6 @@ p{
     right: 20px; /* Adjust this value to control the horizontal position */
     z-index: 1000; /* Adjust the z-index to ensure it appears above other content */
 }
+.fa-small{
+    font-size: 16px !important;
+}
