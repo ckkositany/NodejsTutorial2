@@ -12,6 +12,7 @@ const connectDB = async () => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(error);
+    console.log('Error connecting to MongoDB Atlas.Please check your internet connectivity...')
     process.exit(1);
   }
 };
