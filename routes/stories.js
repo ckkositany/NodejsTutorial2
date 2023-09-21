@@ -50,6 +50,29 @@ router.get('/', ensureAuth, async (req,res)=>{
       }
     })
 
+    //@description show single story
+// @ route GET /stories/: id
+router.get('/:id', ensureAuth, async (req,res)=>{
+  try {
+    let story= await Story.findById(req.params.id)
+  .populate('user')
+  .lean()
+  if (!story){
+    console.log('No story for the user exist in the database')
+    res.render('error/404')
+  }
+  res.render('stories/show', {
+    story,
+  })
+  } catch (err) {
+    console.error(err)
+    res.render('/error/404')
+  }
+  
+  
+})
+
+
     //@description show edit page
 // @ route GET /edit/id
 router.get('/edit/:id', ensureAuth, async (req,res)=>{
