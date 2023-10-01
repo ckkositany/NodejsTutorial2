@@ -40,7 +40,7 @@ router.get('/', ensureAuth, async (req,res)=>{
           .sort({ createdAt: 'desc' })
           .lean()
           .exec()
-            //console.log(stories)
+            console.log(stories)
         res.render('stories/index', {
           stories,
         })
@@ -141,7 +141,7 @@ router.delete('/:id', ensureAuth, async (req,res)=>{
     res.render('error/500')
   }
 })
-//@description user stories
+// @description user stories
 // @ route GET /stories/user/:userId
 router.get('/user/:userId ', ensureAuth, async (req,res)=>{
   try {

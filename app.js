@@ -77,6 +77,7 @@ app.use(function(req,res,next){
 })
 
 //static folder
+//app.use(express.static('./'))
 app.use(express.static(path.join(__dirname,'public')))
 
 //routes
