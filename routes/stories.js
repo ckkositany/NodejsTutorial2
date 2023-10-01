@@ -143,23 +143,29 @@ router.delete('/:id', ensureAuth, async (req,res)=>{
 })
 // @description user stories
 // @ route GET /stories/user/:userId
-router.get('/user/:userId ', ensureAuth, async (req,res)=>{
+router.get('/user/:userId', ensureAuth, async (req, res) => {
+  console.log('The user is:')
+  console.log(`This is the userID: ${req.params.userId}`); // Use req.params to access the userId
+
   try {
-  const stories =await Story.find({
-    user: req.params.userId,
-    status: 'public',
-  })
-  .populate('user')
-  .lean()
-  console.log(user)
-  res.render('stories/index',{
-    stories,
-  })
+    const stories = await Story.find({
+      user: req.params.userId, // Access user ID from req.params
+      status: 'public',
+    })
+      .populate('user')
+      .lean();
+
+   // console.log(stories); // Corrected variable name: stories
+
+    res.render('stories/index', {
+      stories,
+    });
   } catch (err) {
-    console.error(err)
-    res.render('error/500')
+    console.error(err);
+    res.render('error/500');
   }
-})
+  console.log(`The user is: ${req.user.firstName}`);
+});
 
 
 module.exports=router
